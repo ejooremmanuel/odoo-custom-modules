@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- App Menu -->
+    <!-- <menuitem id="menu_contract_manager" name="Contract Manager" sequence="11"/> -->
+
+
+    <!-- Support Contract Action -->
+    <record id="action_support_contract" model="ir.actions.act_window">
+        <field name="name">Support Contract</field>
+        <field name="res_model">support.contract</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- HR Contracts Action -->
+    <record id="action_hr_contract" model="ir.actions.act_window">
+        <field name="name">HR Contract</field>
+        <field name="res_model">support.contract</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_support_contract" name="Support Contract" action="action_support_contract" parent="contract_manager.menu_contract_manager" sequence="10"/>
+    <menuitem id="menu_hr_contract" name="HR Contract" action="action_hr_contract" parent="contract_manager.menu_contract_manager" sequence="20"/>
+
+</odoo>
