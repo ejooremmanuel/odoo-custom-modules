@@ -34,7 +34,7 @@ class contract_manager(models.Model):
     @api.depends('start_date','end_date')
     def _compute_duration (self):
         for record in self:
-            record.duration = (record.start_date - record.end_date).days if record.start_date and record.end_date else 0
+            record.duration = (record.end_date - record.start_date).days if record.start_date and record.end_date else 0
     
     
     # @api.model
