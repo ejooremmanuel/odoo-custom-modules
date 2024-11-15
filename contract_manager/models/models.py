@@ -18,17 +18,6 @@ class contract_manager(models.Model):
     duration = fields.Integer(string='Duration', readonly=True, compute='_compute_duration')
     currency_id = fields.Many2one('res.currency',string='Currency',required=True)
     contract_id = fields.Char(string="Contract Ref", readonly=True, compute='_compute_contract_ref' )
-    
-    @api.depends()
-    def _compute_contract_ref(self):
-        for record in self:
-            contract_number = record.id
-            if contract_number < 10:
-                record.contract_id = 'LBA/SPC/00{}'.format(contract_number)
-            elif 10 == contract_number < 100:
-                record.contract_id = 'LBA/SPC/0{}'.format(contract_number)
-            else:
-                record.contract_id = 'LBA/SPC/{}'.format(contract_number)
        
     
     @api.depends('start_date','end_date')
@@ -46,3 +35,11 @@ class contract_manager(models.Model):
     #                 min_date = self.env.context.get('default_start_date', fields.Date.today())
     #                 res['fields'][field]['options'] = {'min_date': str(min_date)}
     #     return res
+
+     def send_notification_email(self):
+        template = self.env.ref('contract.email_template_leave')
+        for record in self:
+            # Check if the template exists
+            const today = date.today()
+            if template:
+                template.send_mail(record.id, force_send=True)

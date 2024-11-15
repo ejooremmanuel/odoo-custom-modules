@@ -27,7 +27,8 @@
                     <field name="callout_type" string="Type of Call Out"/>
                 </group>
                 <group col="2" attrs="{'invisible': [('callout_type', '!=', 'p')]}">
-                    <field name="invoice" string="Invoice of Payment" widget="manyone_binary"/>
+                    <field name="invoice" string="Invoice of Payment" widget="binary" />
+                     <!-- <field name="invoice_filename" invisible="1"/>  -->
                 </group>
             </page>
             
