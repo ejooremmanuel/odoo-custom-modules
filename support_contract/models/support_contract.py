@@ -7,4 +7,4 @@ class support_contract(models.Model):
 
     contract_type = fields.Selection([('o','On Premise'),('c','Call Out')])
     callout_type = fields.Selection([('p','Pay as You Go'),('c','Contractual')])
-    invoice = fields.Binary(string='Invoice')
+    invoice = fields.Many2one('ir.attachment',string='Invoice')

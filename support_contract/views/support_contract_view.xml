@@ -16,6 +16,7 @@
                     <field name="start_date" string="Start Date"/>
                     <field name="end_date" string="End Date" widget='date'/>
                     <field name="contract_type"/>
+                    <field name="currency_id"/>
                     <field name="amount" string="Total Amount" widget="monetary" options="{'currency_field': 'currency_id'}" />
                 </group>
             </page>
@@ -26,7 +27,7 @@
                     <field name="callout_type" string="Type of Call Out"/>
                 </group>
                 <group col="2" attrs="{'invisible': [('callout_type', '!=', 'p')]}">
-                    <field name="invoice" string="Invoice of Payment"/>
+                    <field name="invoice" string="Invoice of Payment" widget="manyone_binary"/>
                 </group>
             </page>
             
