@@ -15,7 +15,7 @@ class contract_manager(models.Model):
     amount = fields.Monetary(string='Amount',currency_field="currency_id",required=True)
     supporting_document = fields.Many2many("ir.attachment",string="Supporting Documents",)
     end_date = fields.Date(string='End Date',required=True)
-    duration = fields.Date(string='Duration', readonly=True, compute='_compute_duration')
+    duration = fields.Integer(string='Duration', readonly=True, compute='_compute_duration')
     currency_id = fields.Many2one('res.currency',string='Currency',required=True)
     contract_id = fields.Char(string="Contract Ref", readonly=True, compute='_compute_contract_ref' )
     
