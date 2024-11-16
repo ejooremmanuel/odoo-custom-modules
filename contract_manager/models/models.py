@@ -38,10 +38,9 @@ class contract_manager(models.Model):
     @api.model
     def send_notification_email(self):
         template = self.env.ref('contract_manager.email_template_contract')
-        print(self,template,"jrertt")
-        print(self.env['contract.manager'].search([]))
-        print(self,template,"jrertt")
-        for record in self:
+        contracts = self.search([('status', '=', 'running')])
+        print(contracts)
+        for record in contracts:
             print(record,template,"jrertt")
             today = date.today()
             is_seventy_five_due = (today - record.start_date).days == int(record.duration * 0.75)  
