@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+
+
+    <!--  Contract Action -->
+    <record id="action_strategic_partnership_contract" model="ir.actions.act_window">
+        <field name="name">Strategic Partnership Contract</field>
+        <field name="res_model">strategic.partnership.contract</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem id="menu_strategic_partnership_contract" name="Strategic Partnership Contract" action="action_strategic_partnership_contract" parent="contract_manager.menu_contract_manager" sequence="10"/>
+
+</odoo>
