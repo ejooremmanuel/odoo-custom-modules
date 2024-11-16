@@ -40,6 +40,9 @@ class contract_manager(models.Model):
         template = self.env.ref('contract_manager.email_template_contract')
         print(self,template,"jrertt")
         print(self.search([('status','=','running')]),"search")
+        mail = self.env['mail.mail'].create([{
+            
+        }])
         print(self,template,"jrertt")
         for record in self:
             print(record,template,"jrertt")
