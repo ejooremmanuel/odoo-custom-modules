@@ -27,18 +27,15 @@ class support_contract(models.Model):
 
     @api.model
     def send_notification_email(self):
-        template = self.env.ref('contract_manager.email_template_contract')
-        # contracts = self.search_read([('status', '=', 'running')])
-        # print (self.env['mail.mail'].search_read([]))
-        print (self.env['support.contract'].search_read([]))
-        print(contracts)
+        template = self.env.ref('support_contract.email_template_support_contract')
+        contracts = self.env['support.contract'].search([('status', '=', 'running')])
         for record in contracts:
-            print(record,template,"jrertt")
+            email = record.client.email
+            start_date = record.start_date  # Use `get` to avoid KeyError
+            duration = record.duration
             today = date.today()
-            is_seventy_five_due = (today - record.start_date).days == int(record.duration * 0.75)  
-            is_last_day = (today - record.start_date).days == int(record.duration)  
-            is_check = record.end_date == today 
-            if template and is_check:
-                template.send_mail(record.id, force_send=True)
-                print('here??')
+            is_seventy_five_due = (today - start_date).days == int(duration * 0.75)  
+            is_last_day = (today - start_date).days == int(duration)  
+            if template and (is_seventy_five_due or is_last_day):
+                template.send_mail(res_id=record.id, email_values={'email_to': f'{email,email}'}, force_send=True)
         return True

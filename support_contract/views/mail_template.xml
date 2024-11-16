@@ -4,11 +4,11 @@
         <field name="name">Support Contract Notification</field>
         <field name="model_id" ref="model_support_contract"/>
         <field name="subject">Notice of Expiry</field>
-        <field name="email_from">${object.employee_id.email | safe}</field>
+        <field name="email_from">ejoor0000@gmail.com</field>
         <field name="email_to">${object.client.email | safe}</field>
         <field name="body_html">
             <![CDATA[
-                <p>Hello ${object.employee_id.name},</p>
+                <p>Hello ${object.client.name},</p>
                 <p>This is a notification about: ${object.name}.</p>
                 <!-- <p>Details: ${object.description}</p> -->
                 <p>Best regards,<br/>Your Company</p>
