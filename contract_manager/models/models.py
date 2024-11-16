@@ -39,7 +39,7 @@ class contract_manager(models.Model):
     def send_notification_email(self):
         template = self.env.ref('contract_manager.email_template_contract')
         print(self,template,"jrertt")
-        print(self.env['contract.manager'].search([]))
+        print(self.search([('status','=','running')]),"search")
         print(self,template,"jrertt")
         for record in self:
             print(record,template,"jrertt")
