@@ -35,22 +35,4 @@ class contract_manager(models.Model):
     #                 min_date = self.env.context.get('default_start_date', fields.Date.today())
     #                 res['fields'][field]['options'] = {'min_date': str(min_date)}
     #     return res
-    @api.model
-    def send_notification_email(self):
-        template = self.env.ref('contract_manager.email_template_contract')
-        print(self,template,"jrertt")
-        print(self.search([('status','=','running')]),"search")
-        mail = self.env['mail.mail'].create([{
-            
-        }])
-        print(self,template,"jrertt")
-        for record in self:
-            print(record,template,"jrertt")
-            today = date.today()
-            is_seventy_five_due = (today - record.start_date).days == int(record.duration * 0.75)  
-            is_last_day = (today - record.start_date).days == int(record.duration)  
-            is_check = record.end_date == today 
-            if template and is_check:
-                template.send_mail(record.id, force_send=True)
-                print('here??')
-        return True
+    

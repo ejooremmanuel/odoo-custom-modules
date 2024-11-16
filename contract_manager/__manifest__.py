@@ -25,10 +25,8 @@
 
     # always loaded
     'data': [
-        'data/schedule_action_data.xml',
         'security/support_contract_security.xml',
         'security/ir.model.access.csv',
-        'views/mail_template.xml',
         'views/menu.xml',
         # 'views/templates.xml',
     ],
