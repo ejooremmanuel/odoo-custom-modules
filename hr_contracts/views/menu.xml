@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+
+
+    <!--  Contract Action -->
+    <record id="action_hr_contracts" model="ir.actions.act_window">
+        <field name="name">HR Contracts</field>
+        <field name="res_model">hr.contracts</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem id="menu_hr_contracts" name="HR Contracts" action="action_hr_contracts" parent="contract_manager.menu_contract_manager" sequence="11"/>
+
+</odoo>

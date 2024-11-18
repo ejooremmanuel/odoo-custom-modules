@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_form_professional_service_contract" model="ir.ui.view">
+        <field name="name">Professional Service Contract Form</field>
+        <field name="model">professional.service.contract</field>
+        <field name="arch" type="xml">
+            <form name="Professional Service Contract Form">
+    <sheet>
+        <notebook>
+            <!-- First Tab: General Information -->
+            <page string="General Information">
+                <group col="2">
+                    <field name="name"/>
+                    <field name="client" string="Client" widget="many2one_tags"
+                        options="{'no_create_edit': True, 'no_create': True}"/>
+                    <field name="start_date" string="Start Date"/>
+                    <field name="end_date" string="End Date" widget='date'/>
+                    <field name="currency_id"/>
+                    <field name="amount" string="Total Amount" widget="monetary" options="{'currency_field': 'currency_id'}" />
+                </group>
+            </page>
+
+
+            <!-- Third Tab: File Uploads -->
+            <page string="File Uploads">
+                <group>
+                    <field name="supporting_document" widget="many2many_binary"/>
+                </group>
+            </page>
+        </notebook>
+    </sheet>
+</form>
+        </field>
+    </record>
+
+    <record id="view_tree_professional_service_contract" model="ir.ui.view">
+        <field name="name">Professional Service Contract List</field>
+        <field name="model">professional.service.contract</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="contract_id" />
+                <field name="name" />
+                <field name="client" />
+                <field name="amount" />
+                <field name="start_date" />
+                <field name="end_date" />
+                <field name="duration" />
+                <field name="status" />
+
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_search_professional_service_contract" model="ir.ui.view">
+        <field name="name">Professional Service Contract Filters</field>
+        <field name="model">professional.service.contract</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"></field>
+                <field name="contract_id"></field>
+                <field name="client"></field>
+
+            </search>
+        </field>
+    </record>
+
+</odoo>

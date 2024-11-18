@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- HR Contracts Action -->
+    <record id="action_professional_service_contract" model="ir.actions.act_window">
+        <field name="name">Professional Service Contract</field>
+        <field name="res_model">professional.service.contract</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_professional_service_contract" name="Professional Service Contract" action="action_professional_service_contract" parent="contract_manager.menu_contract_manager" sequence="10"/>
+
+
+
+</odoo>
